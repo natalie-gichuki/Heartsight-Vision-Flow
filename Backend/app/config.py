@@ -12,14 +12,14 @@ class Development(Config):
     # Use the DATABASE_URL from .env for development
     SQLALCHEMY_DATABASE_URI = os.getenv(
         "DATABASE_URL", 
-        "postgresql://nat2007:password@localhost:5432/visionflow_db"
+        "postgresql://natalie:mypassword@localhost:5432/heartsight_db"
     )
 
 class Testing(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = os.getenv(
         "TEST_DATABASE_URL", 
-        "postgresql://nat2007:password@localhost:5432/test_visionflow_db"
+        "postgresql://natalie:mypassword@localhost:5432/test_heartsight_db"
     )
     PRESERVE_CONTEXT_ON_EXCEPTION = False
 
@@ -27,7 +27,7 @@ class Production(Config):
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = os.getenv(
         "DATABASE_URL", 
-        "postgresql://nat2007:password@localhost:5432/visionflow_db"
+        "postgresql://natalie:mypassword@localhost:5432/heartsight_db"
     )
 
 config_by_name = {
