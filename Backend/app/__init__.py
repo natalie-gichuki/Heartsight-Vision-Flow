@@ -22,6 +22,9 @@ swagger = Swagger()
 def create_app(config_name = "development"):
     app = Flask(__name__)
     app.config.from_object(config_by_name[config_name])
+    print("🔧 Active Config:", config_name)
+    print("🗄️ Database URI:", app.config["SQLALCHEMY_DATABASE_URI"])
+
     
     # Set up the Swagger configuration
     # This is where you can customize the Swagger UI and API documentation
