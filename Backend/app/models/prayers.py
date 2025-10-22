@@ -28,4 +28,14 @@ class Prayer(db.Model):
             raise ValueError("Content must be at least 5 characters long")
         return content
     
-    
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "title": self.title,
+            "content": self.content,
+            "status": self.status,
+            "category": self.category,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+            "answered_at": self.answered_at.isoformat() if self.answered_at else None
+        }

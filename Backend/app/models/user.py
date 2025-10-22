@@ -14,7 +14,7 @@ class User(db.Model):
     # Relationships
     prayers = db.relationship('Prayer', back_populates='user', cascade='all, delete-orphan')
     goals = db.relationship('Goal', back_populates='user', cascade='all, delete-orphan')
-    bucket_lists = db.relationship('BucketList', back_populates='user', cascade='all, delete-orphan')
+    bucket_list_items = db.relationship('BucketListItem', back_populates='user', cascade='all, delete-orphan')
     vision_boards = db.relationship('VisionBoard', back_populates='user', cascade='all, delete-orphan')
 
     @validates('email')

@@ -29,3 +29,17 @@ class Goal(db.Model):
         if not description or len(description) < 5:
             raise ValueError("Description must be at least 5 characters long")
         return description
+    
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "title": self.title,
+            "description": self.description,
+            "category": self.category,
+            "status": self.status,
+            "progress": self.progress,
+            "created_at": str(self.created_at) if self.created_at else None,
+            "deadline": str(self.deadline) if self.deadline else None,
+            "completed_at": str(self.completed_at) if self.completed_at else None
+    }

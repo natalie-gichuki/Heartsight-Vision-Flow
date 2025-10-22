@@ -22,3 +22,16 @@ class VisionBoard(db.Model):
         if not title or len(title) < 2:
             raise ValueError("Title must be at least 2 characters long")
         return title
+    
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "title": self.title,
+            "description": self.description,
+            "category": self.category,
+            "date_added": self.date_added.isoformat() if self.date_added else None,
+            "achieved_on": self.achieved_on.isoformat() if self.achieved_on else None,
+            "image_url": self.image_url,
+            "timeline": self.timeline,
+    }

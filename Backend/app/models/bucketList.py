@@ -28,3 +28,17 @@ class BucketListItem(db.Model):
         if not description or len(description) < 5:
             raise ValueError("Description must be at least 5 characters long")
         return description
+    
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "title": self.title,
+            "description": self.description,
+            "category": self.category,
+            "completed": self.completed,
+            "status": self.status,
+            "date_added": str(self.date_added) if self.date_added else None,
+            "achieved_at": str(self.achieved_at) if self.achieved_at else None
+        }
