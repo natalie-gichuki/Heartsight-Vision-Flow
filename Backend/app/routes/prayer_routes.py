@@ -3,7 +3,7 @@ from app import db
 from app.models.prayers import Prayer
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
-prayer_bp = Blueprint('prayer', __name__, url_prefix='/prayers')
+prayer_bp = Blueprint('prayer', __name__)
 @prayer_bp.route('/prayers', methods=['GET', 'OPTIONS'])
 @jwt_required()
 def get_prayers():
@@ -31,7 +31,9 @@ def add_prayer():
         title=data['title'],
         content=data['content'],
         category=data.get('category', 'general'),
-        date_added=data.get('date_added', None)
+        created_at=data.get('created_at', None),
+        answered_at=data.get('answered_at', None),
+        status=data.get('status', 'pending')
     )
 
     db.session.add(new_prayer)
