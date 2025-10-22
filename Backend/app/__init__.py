@@ -8,14 +8,14 @@ load_dotenv()
 
 from flask_jwt_extended import JWTManager
 from app.config import config_by_name
-from flasgger import Swagger
+
 
 # Initialize Flask extensions
 db = SQLAlchemy()
 migrate = Migrate()
 jwt = JWTManager()
 cors = CORS()
-swagger = Swagger()
+
 
 # Create the Flask application factory
 # This allows for different configurations (development, testing, production)
@@ -25,22 +25,6 @@ def create_app(config_name = "development"):
     print("🔧 Active Config:", config_name)
     print("🗄️ Database URI:", app.config["SQLALCHEMY_DATABASE_URI"])
 
-    
-    # Set up the Swagger configuration
-    # This is where you can customize the Swagger UI and API documentation
-    app.config['SWAGGER'] = {
-    'title': 'Team Neighbours Chama API',
-    'uiversion': 3,
-    'securityDefinitions': {
-        'Bearer': {
-            'type': 'apiKey',
-            'name': 'Authorization',
-            'in': 'header',
-            'description': "JWT Authorization header using the Bearer scheme. Example: 'Authorization: Bearer {token}'"
-        }
-    }
-}
-    
     # Initialize extensions
     db.init_app(app)
 
@@ -53,7 +37,7 @@ def create_app(config_name = "development"):
     "http://localhost:5173"
     ]}}, supports_credentials=True)
 
-    swagger.init_app(app)
+    
     
     # Import models and routes
     from app import models
@@ -68,7 +52,12 @@ def create_app(config_name = "development"):
 
 
     # Register blueprints
-    
+    app.register_blueprint(auth_routes.auth_bp)
+    app.register_blueprint(user_routes.user_bp)
+    app.register_blueprint(goal_routes.goals_bp)
+    app.register_blueprint(prayer_routes.prayer_bp)
+    app.register_blueprint(visionboard_routes.visionboard_bp)
+    app.register_blueprint(bucketlist_routes.bucketlist_bp)
 
 
     return app
