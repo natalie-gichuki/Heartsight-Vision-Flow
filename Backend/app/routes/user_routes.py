@@ -17,7 +17,7 @@ def get_user_profile():
     if not user:
         return jsonify({"message": "User not found"}), 404
 
-    return jsonify({"id": user.id, "email": user.email, "name": user.name, "gender": user.gender}), 200
+    return jsonify({"id": user.id, "email": user.email, "username": user.username, "gender": user.gender}), 200
 
 
 @user_bp.route('/profile', methods=['PUT', 'OPTIONS'])
@@ -37,7 +37,7 @@ def update_user_profile():
     if not data: 
         return jsonify({"message": "No data provided"}), 400
 
-    user.name = data.get("name", user.name)
+    user.username = data.get("username", user.username)
     user.email = data.get("email", user.email)
     user.gender = data.get("gender", user.gender)
 

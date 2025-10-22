@@ -89,3 +89,17 @@ def delete_vision_board(board_id):
 
     return jsonify({"message": "Vision board deleted successfully"}), 200
 
+@visionboard_bp.route('/boards/<int:board_id>', methods=['GET', 'OPTIONS'])
+@jwt_required()
+def get_vision_board(board_id):  
+    if request.method == 'OPTIONS':
+        return jsonify({"message": "CORS preflight request successful"}), 200
+
+    user_id = get_jwt_identity()
+    board = VisionBoard.query.get(board_id)
+
+    if not board or board.user_id != user_id:
+        return jsonify({"message": "Vision board not found"}), 404
+
+    return jsonify(board.to_dict()), 200
+
