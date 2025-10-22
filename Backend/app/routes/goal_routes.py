@@ -5,7 +5,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 goals_bp = Blueprint('goals', __name__, url_prefix='/goals')
 
-@goals_bp.route('/goals', methods=['GET', 'OPTIONS'])
+@goals_bp.route('/goalItems', methods=['GET', 'OPTIONS'])
 @jwt_required()
 def get_goals():
     if request.method == 'OPTIONS':
@@ -15,7 +15,7 @@ def get_goals():
     goals = Goal.query.filter_by(user_id=user_id).all()
     return jsonify([goal.to_dict() for goal in goals]), 200
 
-@goals_bp.route('/goals', methods=['POST', 'OPTIONS'])
+@goals_bp.route('/goalItems', methods=['POST', 'OPTIONS'])
 @jwt_required()
 def add_goal():
     if request.method == 'OPTIONS':
@@ -44,7 +44,7 @@ def add_goal():
 
     return jsonify(new_goal.to_dict()), 201
 
-@goals_bp.route('/goals/<int:goal_id>', methods=['PUT', 'OPTIONS'])
+@goals_bp.route('/goalItems/<int:goal_id>', methods=['PUT', 'OPTIONS'])
 @jwt_required()
 def update_goal(goal_id):
     if request.method == 'OPTIONS':
@@ -74,7 +74,7 @@ def update_goal(goal_id):
 
     return jsonify(goal.to_dict()), 200
 
-@goals_bp.route('/goals/<int:goal_id>', methods=['DELETE', 'OPTIONS'])
+@goals_bp.route('/goalItems/<int:goal_id>', methods=['DELETE', 'OPTIONS'])
 @jwt_required()
 def delete_goal(goal_id):
     if request.method == 'OPTIONS':
@@ -91,7 +91,7 @@ def delete_goal(goal_id):
 
     return jsonify({"message": "Goal deleted successfully"}), 200
 
-@goals_bp.route('/goals/<int:goal_id>', methods=['GET', 'OPTIONS'])
+@goals_bp.route('/goalItems/<int:goal_id>', methods=['GET', 'OPTIONS'])
 @jwt_required()
 def get_goal(goal_id):
     if request.method == 'OPTIONS':
