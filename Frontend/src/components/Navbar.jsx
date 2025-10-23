@@ -22,9 +22,9 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           <Link
             to="/"
-            className="text-xl font-semibold tracking-wide text-[#6B4B3E]"
+            className="text-2xl font-bold tracking-wide text-[#6B4B3E] hover:text-[#B2856E] transition-all duration-200"
           >
-            VisionFlow
+            Heartsight Vision Flow
           </Link>
           <button
             className="md:hidden text-3xl text-[#6B4B3E]"
@@ -38,25 +38,31 @@ const Navbar = () => {
         <div className="hidden md:flex gap-8 text-base font-medium">
           <Link
             to="/"
-            className="hover:text-[#B2856E] transition-all duration-200"
+            className="hover:text-[#B2856E] text-xl transition-all duration-200 hover:underline hover:text-2xl"
           >
             Home
           </Link>
           <Link
             to="/vision"
-            className="hover:text-[#B2856E] transition-all duration-200"
+            className="hover:text-[#B2856E] text-xl transition-all duration-200 hover:underline hover:text-2xl"
           >
             Vision
           </Link>
           <Link
+            to="/bucketlist"
+            className="hover:text-[#B2856E] text-xl transition-all duration-200 hover:underline hover:text-2xl"
+          >
+            BucketList
+          </Link>
+          <Link
             to="/prayers"
-            className="hover:text-[#B2856E] transition-all duration-200"
+            className="hover:text-[#B2856E] text-xl transition-all duration-200 hover:underline hover:text-2xl"
           >
             Prayer
           </Link>
           <Link
             to="/goals"
-            className="hover:text-[#B2856E] transition-all duration-200"
+            className="hover:text-[#B2856E] text-xl transition-all duration-200 hover:underline hover:text-2xl"
           >
             Goals
           </Link>
@@ -66,7 +72,7 @@ const Navbar = () => {
               <span className="italic text-sm opacity-80">{user.username}</span>
               <Link
                 to="/profile"
-                className="text-xl hover:text-[#B2856E] transition"
+                className="text-2xl hover:text-[#B2856E] transition  1"
               >
                 👤
               </Link>
