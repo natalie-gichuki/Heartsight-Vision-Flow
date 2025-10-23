@@ -45,10 +45,10 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#FFF7F3] p-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#FAF3EF] p-4">
       <div className="bg-white rounded-3xl shadow-md w-full max-w-4xl flex flex-col md:flex-row overflow-hidden">
         {/* Left Side */}
-        <div className="hidden md:flex w-1/2 bg-[#FBE9E1] items-center justify-center text-[#5B3A29] p-10">
+        <div className="hidden md:flex w-1/2 bg-[#EBD6CC] items-center justify-center text-[#5B3A29] p-10">
           <div className="text-center">
             <h2 className="text-3xl font-semibold mb-4">Welcome to VisionFlow 🌸</h2>
             <p className="text-sm opacity-80 leading-relaxed">
@@ -60,7 +60,7 @@ const Register = () => {
         </div>
 
         {/* Right Side - Form */}
-        <div className="w-full md:w-1/2 p-8 sm:p-12 bg-[#FFFDFB]">
+        <div className="w-full md:w-1/2 p-8 sm:p-12 bg-[#FAF3EF]">
           <h2 className="text-2xl font-bold text-center text-[#7A5C4D] mb-6">
             Create Your Account
           </h2>
@@ -109,6 +109,7 @@ const Register = () => {
                 onChange={handleChange}
                 className="w-full px-4 py-3 border border-[#EBCFC2] bg-[#FFF9F7] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#EBCFC2]"
                 required
+                autoComplete='new-email'
               />
             </div>
 
@@ -122,6 +123,7 @@ const Register = () => {
                 onChange={handleChange}
                 className="w-full px-4 py-3 border border-[#EBCFC2] bg-[#FFF9F7] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#EBCFC2]"
                 required
+                autoComplete='new-password'
               />
             </div>
 
