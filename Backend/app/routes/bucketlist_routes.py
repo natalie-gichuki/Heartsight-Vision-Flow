@@ -27,6 +27,11 @@ def add_bucketlist_item():
     if not data or not data.get('title') or not data.get('description'):
         return jsonify({"message": "Title and description are required"}), 400
 
+    if data.get('date_added') == '':
+        data['date_added'] = None
+    if data.get('achieved_at') == '':
+        data['achieved_at'] = None
+
     new_item = BucketListItem(
         user_id=user_id,
         title=data['title'],

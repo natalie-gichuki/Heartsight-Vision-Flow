@@ -10,6 +10,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Profile from './pages/Profile'
 import Visions from './pages/VisionBoard'
+import BucketList from './pages/BucketList'
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -25,6 +26,7 @@ function App() {
         <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/vision" element={user ? <Visions /> : <Navigate to="/login" />} />
+        <Route path="/bucketlist" element={user ? <BucketList /> : <Navigate to="/login" />} />
       </Routes>
       <Footer />
     </>
