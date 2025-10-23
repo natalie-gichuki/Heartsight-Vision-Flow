@@ -11,6 +11,7 @@ import Footer from './components/Footer'
 import Profile from './pages/Profile'
 import Visions from './pages/VisionBoard'
 import BucketList from './pages/BucketList'
+import PrayerPage from './pages/MyPrayers'
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -27,6 +28,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/vision" element={user ? <Visions /> : <Navigate to="/login" />} />
         <Route path="/bucketlist" element={user ? <BucketList /> : <Navigate to="/login" />} />
+        <Route path="/prayers" element={user ? <PrayerPage /> : <Navigate to="/login" />} />
       </Routes>
       <Footer />
     </>
