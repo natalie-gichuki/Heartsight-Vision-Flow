@@ -68,7 +68,7 @@ const PrayerPage = () => {
 
     return (
         <div className="bg-[#FFF9F6] min-h-screen p-8 text-[#5C4B47]">
-            <h1 className="text-4xl font-extrabold text-center bg-gradient-to-r from-[#6B4B3E] via-[#C69C8D] to-[#C27B7F] bg-clip-text text-transparent drop-shadow-md">
+            <h1 className="text-4xl font-extrabold text-center mb-4 bg-gradient-to-r from-[#6B4B3E] via-[#C69C8D] to-[#C27B7F] bg-clip-text text-transparent drop-shadow-md">
                 My Prayers 🙏
             </h1>
             <div className="flex justify-between items-center mb-8">
