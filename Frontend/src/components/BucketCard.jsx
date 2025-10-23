@@ -3,7 +3,7 @@ import { Trash2, Edit } from "lucide-react";
 
 const BucketCard = ({ item, onEdit, onDelete }) => {
     return (
-        <div className="flex flex-col w-64 bg-[#FFF9F6] rounded-xl shadow-sm border border-[#F5DAD2] overflow-hidden hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+        <div className="flex flex-col w-70 bg-[#FFF9F6] rounded-xl shadow-sm border border-[#F5DAD2] overflow-hidden hover:shadow-md hover:-translate-y-1 transition-all duration-200">
             <div className="flex flex-col items-center text-center px-4 py-4">
                 <h3 className="text-2xl font-extrabold text-[#9C6755] mb-1">
                     {item.title}

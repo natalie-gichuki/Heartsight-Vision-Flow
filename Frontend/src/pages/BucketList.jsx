@@ -67,7 +67,7 @@ const BucketList = () => {
 
     return (
         <div className="bg-[#FFF9F6] min-h-screen p-8 text-[#5C4B47]">
-            <h1 className="text-center text-4xl font-extrabold bg-gradient-to-r from-[#6B4B3E] via-[#C69C8D] to-[#C27B7F] bg-clip-text text-transparent mb-4 drop-shadow-md">My Bucket List 🌟</h1>
+            <h1 className="text-center text-3xl font-extrabold bg-gradient-to-r from-[#6B4B3E] via-[#C69C8D] to-[#C27B7F] bg-clip-text text-transparent mb-4 drop-shadow-md">My Bucket List 🌟</h1>
             <div className="flex justify-between items-center mb-8">
 
                 <button
