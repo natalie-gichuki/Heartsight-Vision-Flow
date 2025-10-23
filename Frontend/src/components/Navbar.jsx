@@ -46,7 +46,7 @@ const Navbar = () => {
             to="/vision"
             className="hover:text-[#B2856E] text-xl transition-all duration-200 hover:underline hover:text-2xl"
           >
-            Vision
+            VisionBoard
           </Link>
           <Link
             to="/bucketlist"
