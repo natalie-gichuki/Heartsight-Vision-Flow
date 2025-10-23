@@ -9,6 +9,7 @@ import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Profile from './pages/Profile'
+import Visions from './pages/VisionBoard'
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -23,6 +24,7 @@ function App() {
         <Route path="/register" element={user ? <Navigate to="/" /> : <Register />} />
         <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
         <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/vision" element={user ? <Visions /> : <Navigate to="/login" />} />
       </Routes>
       <Footer />
     </>
