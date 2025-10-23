@@ -26,6 +26,11 @@ def add_goal():
 
     if not data or not data.get('title') or not data.get('description'):
         return jsonify({"message": "Title and description are required"}), 400
+    
+    if data.get('completed_at') == '':
+        data['completed_at'] = None
+    if data.get('deadline') == '':
+        data['deadline'] = None
 
     new_goal = Goal(
         user_id=user_id,
