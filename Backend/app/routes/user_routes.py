@@ -27,12 +27,13 @@ def update_user_profile():
         return jsonify({"message": "CORS preflight request successful"}), 200
     
     user_id = get_jwt_identity()
+    data = request.get_json(force=True, silent=True)
+
 
     user = User.query.get(user_id)
     if not user:
         return jsonify({"message": "User not found"}), 404
     
-    data = request.get_json()
 
     if not data: 
         return jsonify({"message": "No data provided"}), 400

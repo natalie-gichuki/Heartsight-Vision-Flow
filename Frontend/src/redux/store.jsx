@@ -1,5 +1,6 @@
-import {configureStore} from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import authReducer from './Slice/authSlice';
+import userReducer from './Slice/userSlice';
 
 
 // This is the Redux store configuration file
@@ -9,6 +10,7 @@ const store = configureStore({
     // The reducer is set to authReducer, which handles authentication state.
     reducer: {
         auth: authReducer,
+        user: userReducer,
     },
     // devTools is enabled only in development mode for debugging purposes.
     devTools: process.env.NODE_ENV !== 'production',
