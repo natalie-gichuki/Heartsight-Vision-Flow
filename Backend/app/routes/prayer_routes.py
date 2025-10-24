@@ -25,6 +25,12 @@ def add_prayer():
 
     if not data or not data.get('title') or not data.get('content'):
         return jsonify({"message": "Title and content are required"}), 400
+    
+    if data.get('answered_at') == '':
+        data['answered_at'] = None
+    if data.get('created_at') == '':
+        data['created_at'] = None
+
 
     new_prayer = Prayer(
         user_id=user_id,
