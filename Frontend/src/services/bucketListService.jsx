@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5555/bucketlist/items";
+const API_URL = "https://heartsight-vision-flow.onrender.com/bucketlist/items";
 
 const getItems = async (token) => {
     const res = await axios.get(API_URL, {
