@@ -12,14 +12,14 @@ export default function HomePage() {
                 transition={{ repeat: Infinity, duration: 6 }}
                 className="absolute top-20 left-12 text-[#C69C8D]"
             >
-                <Heart size={60} />
+                <Heart size={38} />
             </motion.div>
             <motion.div
                 animate={{ y: [0, -25, 0] }}
                 transition={{ repeat: Infinity, duration: 8 }}
                 className="absolute bottom-28 right-16 text-[#C27B7F]"
             >
-                <Star size={60} />
+                <Star size={38} />
             </motion.div>
             <motion.div
                 animate={{ y: [0, -15, 0] }}

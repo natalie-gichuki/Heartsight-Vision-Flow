@@ -37,7 +37,7 @@ const GoalForm = ({ onSubmit, editingGoal, onClose }) => {
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50">
-            <div className="bg-[#FFF9F6] rounded-3xl p-6 w-full max-w-2xl shadow-md border border-blush">
+            <div className="max-h-[90vh] overflow-y-auto bg-[#FFF9F6] rounded-3xl p-6 w-full max-w-2xl shadow-md border border-blush">
                 <h2 className="text-xl font-semibold text-[#5C4B47] mb-6 text-center">
                     {editingGoal ? "Edit Goal" : "Add New Goal"} 🌟
                 </h2>

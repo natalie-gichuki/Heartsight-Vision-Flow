@@ -26,8 +26,8 @@ const BucketListForm = ({ onSubmit, onClose, existingItem }) => {
     };
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50 overflow-y-auto">
-            <div className="bg-[#FFF9F6] rounded-3xl p-6 w-[600px] shadow-md border border-[#F5DAD2]">
+        <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50">
+            <div className="max-h-[90vh] overflow-y-auto bg-[#FFF9F6] rounded-3xl p-6 w-[600px] shadow-md border border-[#F5DAD2]">
                 <h2 className="text-xl font-semibold text-[#9C6755] mb-6 text-center">
                     {existingItem ? "Edit Bucket Item" : "Add New Item"}
                 </h2>
