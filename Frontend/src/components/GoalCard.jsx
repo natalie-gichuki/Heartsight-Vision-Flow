@@ -4,8 +4,8 @@ import { Pencil, Trash2 } from "lucide-react";
 const GoalCard = ({ goal, onEdit, onDelete }) => {
     return (
         <div className="bg-white rounded-xl shadow-md p-4 flex flex-col justify-between border border-blush hover:shadow-lg transition">
-            <h3 className="text-2xl font-semibold text-[#9C6755]">{goal.title}</h3>
-            <p className="text-[#9C6755] mt-2 text-xl"> ~ {goal.description}</p>
+            <h3 className="text-2xl font-semibold text-[#9C6755]"> ~ {goal.title}</h3>
+            <p className="text-[#9C6755] mt-2 text-xl"> {goal.description}</p>
             <p className="text-[#B9AFA5] text-lg mt-2">Category: {goal.category}</p>
             <p className="text-[#B9AFA5] text-lg mt-1">Status: {goal.status}</p>
             <div className="mt-2">
