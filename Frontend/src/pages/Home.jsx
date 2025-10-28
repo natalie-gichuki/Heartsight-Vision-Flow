@@ -69,7 +69,7 @@ const HomePage = () => {
                 transition={{ duration: 1 }}
                 className="z-10 text-center"
             >
-                <h1 className="text-6xl pt-20 font-extrabold bg-gradient-to-r from-[#6B4B3E] via-[#C69C8D] to-[#C27B7F] bg-clip-text text-transparent mb-4 drop-shadow-md">
+                <h1 className="text-6xl pt-40 font-extrabold bg-gradient-to-r from-[#6B4B3E] via-[#C69C8D] to-[#C27B7F] bg-clip-text text-transparent mb-4 drop-shadow-md">
                     VisionFlow 🌸
                 </h1>
                 <p className="text-[#6B4B3E]/80 text-lg sm:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
@@ -252,7 +252,7 @@ const HomePage = () => {
                         className="text-center md:text-left md:w-1/2"
                     >
                         <h2 className="text-3xl font-bold text-[#6B4B3E] mb-4">
-                            Goals Section 🌻
+                            Goals Section 🎯
                         </h2>
                         <p className="text-[#6B4B3E]/80 text-lg leading-relaxed mb-6">
                             VisionFlow empowers you to set, track, and achieve your goals with clarity and purpose.
