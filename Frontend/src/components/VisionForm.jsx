@@ -60,14 +60,22 @@ const VisionForm = ({ onSubmit, editingVision, onClose }) => {
                         rows={3}
                     />
 
-                    <input
-                        name="category"
+                    <select name="category"
                         value={formData.category}
                         onChange={handleChange}
-                        placeholder="Category"
-                        className="w-full border border-blush bg-rose text-cocoa placeholder-latte p-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-peach transition"
-                    />
-
+                        className="w-full border border-blush bg-rose text-cocoa placeholder-latte p-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-peach transition">
+                        <option value="" disabled>Select Category</option>
+                        <option value="personal">Personal growth</option>
+                        <option value="career">Career & Purpose</option>
+                        <option value="health">Health and Wellness</option>
+                        <option value="travel">Travel & Adventure</option>
+                        <option value="finance">Finance & Abundance</option>
+                        <option value="relationships">Relationships & Love</option>
+                        <option value="faith">Faith & Spirituality</option>
+                        <option value="lifestyle">Lifestyle & Home</option>
+                        <option value="legacy">Legacy & Impact</option>
+                        <option value="other">Other</option>
+                    </select>
                     <input
                         name="image_url"
                         value={formData.image_url}
