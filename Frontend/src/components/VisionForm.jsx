@@ -28,10 +28,25 @@ const VisionForm = ({ onSubmit, editingVision, onClose }) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        onSubmit(formData);
-        onClose();
+
+        try {
+            // Build a FormData object to send both text + file data
+            const formDataToSend = new FormData();
+            formDataToSend.append("title", formData.title);
+            formDataToSend.append("description", formData.description);
+            formDataToSend.append("category", formData.category);
+            formDataToSend.append("timeline", formData.timeline);
+            if (formData.image) {
+                formDataToSend.append("image", formData.image);
+            }
+
+            await onSubmit(formDataToSend);
+            onClose();
+        } catch (error) {
+            Swal.fire("Error", "Failed to save vision board", "error");
+        }
     };
 
     return (
@@ -76,12 +91,13 @@ const VisionForm = ({ onSubmit, editingVision, onClose }) => {
                         <option value="legacy">Legacy & Impact</option>
                         <option value="other">Other</option>
                     </select>
+                    {/* File input replaces image_url */}
                     <input
-                        name="image_url"
-                        value={formData.image_url}
-                        onChange={handleChange}
-                        placeholder="Image URL"
-                        className="w-full border border-blush bg-rose text-cocoa placeholder-latte p-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-peach transition"
+                        type="file"
+                        name="image"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        className="w-full border border-blush bg-rose text-cocoa p-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-peach transition"
                     />
 
                     <input

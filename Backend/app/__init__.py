@@ -8,6 +8,7 @@ load_dotenv()
 
 from flask_jwt_extended import JWTManager
 from app.config import config_by_name
+from app.config import Config
 
 
 # Initialize Flask extensions
@@ -24,6 +25,8 @@ def create_app(config_name = "development"):
     app.config.from_object(config_by_name[config_name])
     print("🔧 Active Config:", config_name)
     print("🗄️ Database URI:", app.config["SQLALCHEMY_DATABASE_URI"])
+    app.config['UPLOAD_FOLDER'] = Config.UPLOAD_FOLDER
+    app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB limit
 
     # Initialize extensions
     db.init_app(app)
