@@ -128,7 +128,7 @@ const HomePage = () => {
                     className="relative aspect-video w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl"
                 >
                     <video
-                        className="w-full object-cover h-full object-[center_-50px]"
+                        className="w-full object-cover h-full]"
                         controls
                         poster={Tutorial_Video}
                         autoPlay
