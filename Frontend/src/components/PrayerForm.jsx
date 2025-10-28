@@ -52,13 +52,26 @@ const PrayerForm = ({ onSubmit, editingPrayer, onClose }) => {
                             required
                         />
                         <label htmlFor="category" className="font-medium text-[#5C4B47]">Category:</label>
-                        <input
+                        <select
                             name="category"
                             value={formData.category}
                             onChange={handleChange}
-                            placeholder="Category"
                             className="w-full border border-blush bg-rose text-[#5C4B47] p-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C69C8D] transition"
-                        />
+                            required
+                        >
+                            <option value="">Select Category</option>
+                            <option value="gratitude">Gratitude & Thanksgiving</option>
+                            <option value="repentance">Repentance & Forgiveness </option>
+                            <option value="personal growth">Personal Growth</option>
+                            <option value="relationships">Relationships & Love</option>
+                            <option value="career">Career</option>
+                            <option value="health">Health & Well-being</option>
+                            <option value="finance">Finance & Provision</option>
+                            <option value="dreams">Dreams & Future</option>
+                            <option value="education">Education</option>
+                            <option value="other">Other</option>
+                        </select>
+
                     </div>
 
                     <label htmlFor="content" className="font-medium text-[#5C4B47]">Content:</label>

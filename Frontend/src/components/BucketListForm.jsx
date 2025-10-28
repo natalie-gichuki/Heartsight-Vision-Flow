@@ -62,13 +62,24 @@ const BucketListForm = ({ onSubmit, onClose, existingItem }) => {
                     {/* Category */}
                     <div>
                         <label className="block text-[#5C4B47] text-sm mb-1">Category:</label>
-                        <input
-                            name="category"
-                            onChange={handleChange}
+                        <select name='category'
+                            onchange={handleChange}
                             value={formData.category}
-                            placeholder="Category"
-                            className="w-full border border-[#F5DAD2] bg-[#FCEDE6] text-[#5C4B47] placeholder-[#B9AFA5] p-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#E7BFB1]"
-                        />
+                            className="w-full border border-[#F5DAD2] bg-[#FCEDE6] text-[#5C4B47] p-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#E7BFB1]"
+                        >
+                            <option value="">Select Category</option>
+                            <option value="travel">Travel and Adventure</option>
+                            <option value="adventure">Health & Fitness</option>
+                            <option value="experience">Career</option>
+                            <option value="skill">Finance & Growth</option>
+                            <option value="education">Education</option>
+                            <option value="spiritual">Spiritual growth</option>
+                            <option value="personal">Personal Growth</option>
+                            <option value="dreams">Dreams & Aspirations</option>
+                            <option value="relationships">Relationships & love</option>
+                            <option value="other">Other</option>
+
+                        </select>
                     </div>
 
                     {/* Status */}

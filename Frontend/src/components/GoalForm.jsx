@@ -60,13 +60,24 @@ const GoalForm = ({ onSubmit, editingGoal, onClose }) => {
 
                         <div className="flex flex-col">
                             <label className="mb-1 font-medium text-[#5C4B47]" htmlFor="category">Category</label>
-                            <input
+                            <select
                                 name="category"
                                 value={formData.category}
                                 onChange={handleChange}
-                                placeholder="Category"
                                 className="w-full border border-blush bg-rose text-[#5C4B47] p-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C69C8D]"
-                            />
+                                required
+                            >
+                                <option value="">Select Category</option>
+                                <option value="personal">Personal Goals</option>
+                                <option value="professional">Career Goals</option>
+                                <option value="education">Education Goals</option>
+                                <option value="relationships">Relationship Goals</option>
+                                <option value="health">Health Goals</option>
+                                <option value="financial">Financial Goals</option>
+                                <option value="spiritual">Spiritual Goals</option>
+                                <option value="lifestyle">Lifestyle Goals</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>
                     </div>
 
