@@ -96,7 +96,7 @@ const VisionForm = ({ onSubmit, editingVision, onClose }) => {
                         type="file"
                         name="image"
                         accept="image/*"
-                        onChange={handleFileChange}
+                        onChange={handleChange}
                         className="w-full border border-blush bg-rose text-cocoa p-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-peach transition"
                     />
 

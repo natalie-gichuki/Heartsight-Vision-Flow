@@ -11,6 +11,9 @@ const BucketListForm = ({ onSubmit, onClose, existingItem }) => {
         status: "pending",
     });
 
+    const achievedAtValue = existingItem?.achieved_at || "";
+    formData.achieved_at = achievedAtValue;
+
     useEffect(() => {
         if (existingItem) setFormData(existingItem);
     }, [existingItem]);
@@ -63,7 +66,7 @@ const BucketListForm = ({ onSubmit, onClose, existingItem }) => {
                     <div>
                         <label className="block text-[#5C4B47] text-sm mb-1">Category:</label>
                         <select name='category'
-                            onchange={handleChange}
+                            onChange={handleChange}
                             value={formData.category}
                             className="w-full border border-[#F5DAD2] bg-[#FCEDE6] text-[#5C4B47] p-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#E7BFB1]"
                         >

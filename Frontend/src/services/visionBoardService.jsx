@@ -11,14 +11,21 @@ const getVisions = async (token) => {
 
 const createVision = async (data, token) => {
     const response = await axios.post(API_URL, data, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: {
+            Authorization: `Bearer ${token}`,
+            // ❌ Do NOT set Content-Type manually for FormData
+        },
     });
     return response.data;
 };
 
+// PUT update vision (can include new image)
 const updateVision = async (id, data, token) => {
     const response = await axios.put(`${API_URL}/${id}`, data, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: {
+            Authorization: `Bearer ${token}`,
+            // Also allow FormData here
+        },
     });
     return response.data;
 };
