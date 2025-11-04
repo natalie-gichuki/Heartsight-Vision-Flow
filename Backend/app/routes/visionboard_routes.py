@@ -51,7 +51,7 @@ def add_vision_board():
         timeline=timeline,
         date_added=date_added,
         achieved_on=achieved_on,
-        image_path=image_path
+        image_url=image_path
     )
 
     db.session.add(new_board)
