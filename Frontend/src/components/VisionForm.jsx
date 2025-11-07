@@ -25,7 +25,13 @@ const VisionForm = ({ onSubmit, editingVision, onClose }) => {
 
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const { name, value, files } = e.target;
+        if (name === "image") {
+            // Handle file input separately
+            setFormData({ ...formData, image: files[0] || null });
+        } else {
+            setFormData({ ...formData, [name]: value });
+        }
     };
 
     const handleSubmit = async (e) => {

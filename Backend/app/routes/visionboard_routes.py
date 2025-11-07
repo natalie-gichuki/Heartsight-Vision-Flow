@@ -4,6 +4,7 @@ import os
 from flask import current_app
 from app.models.visionboard import VisionBoard
 from flask_jwt_extended import jwt_required, get_jwt_identity
+from werkzeug.utils import secure_filename
 
 visionboard_bp = Blueprint('visionboard', __name__, url_prefix='/visionboard')
 
@@ -33,15 +34,20 @@ def add_vision_board():
     achieved_on = request.form.get('achieved_on')
     image = request.files.get('image')
 
+    if not image:
+        return jsonify({"message": "Image file is required"}), 400
+
     if not title or not description:
         return jsonify({"message": "Title and description are required"}), 400
 
     image_path = None
     if image:
-        filename = image.filename
+        filename = secure_filename(image.filename)
         filepath = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
         image.save(filepath)
-        image_path = f"/static/uploads/{filename}"
+        image_path = f"{request.host_url}static/uploads/{filename}"
+        print("Saved file to:", filepath)
+
 
     new_board = VisionBoard(
         user_id=user_id,
