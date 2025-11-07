@@ -13,14 +13,20 @@ import BlankGoalsForm from "../assets/goals-images/Empty-goals-form.png";
 import EmptyGoalsPage from "../assets/goals-images/Empty-goals-page.png";
 import FilledGoalsForm from "../assets/goals-images/Filled-goals-form.png";
 import GoalsCard from "../assets/goals-images/goal-card.png";
+import BlankVisionBoard from "../assets/vision-images/Empty-vision-page.png";
+import EmptyVisionForm from "../assets/vision-images/Blank-vision-form.png";
+import FilledVisionForm from "../assets/vision-images/Filled-vision-form.png";
+import VisionCard from "../assets/vision-images/Vision-card.png";
 
 const prayerImages = [BlankPrayerPage, EmptyPrayerForm, FilledPrayerForm, PrayerCard];
 const goalsImages = [EmptyGoalsPage, BlankGoalsForm, FilledGoalsForm, GoalsCard];
+const visionImages = [BlankVisionBoard, EmptyVisionForm, FilledVisionForm, VisionCard];
 
 const HomePage = () => {
     const [current, setCurrent] = React.useState(0);
 
     const [goalsCurrent, setGoalsCurrent] = React.useState(0);
+    const [visionCurrent, setVisionCurrent] = React.useState(0);
     console.log(goalsCurrent);
 
     // Automatically change the image every 4 seconds
@@ -28,12 +34,13 @@ const HomePage = () => {
         const interval = setInterval(() => {
             setCurrent((prev) => (prev + 1) % prayerImages.length);
             setGoalsCurrent((prev) => (prev + 1) % goalsImages.length);
+            setVisionCurrent((prev) => (prev + 1) % visionImages.length);
         }, 4000);
 
         return () => {
             clearInterval(interval);
         };
-    }, [prayerImages.length, goalsImages.length]);
+    }, [prayerImages.length, goalsImages.length, visionImages.length]);
 
 
     return (
@@ -217,7 +224,7 @@ const HomePage = () => {
                 </section>
 
                 {/* 🌻 Second Carousel - Inspiration Section */}
-                <section className="flex flex-col md:flex-row-reverse items-center justify-center gap-10">
+                <section className="flex flex-col md:flex-row-reverse items-center mt-20 justify-center gap-10">
                     {/* Right: Carousel */}
                     <div className="relative w-full md:w-1/2 aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
                         {goalsImages.map((img, index) => (
@@ -264,6 +271,60 @@ const HomePage = () => {
                         </p>
                         <p className="text-[#6B4B3E]/70 italic">
                             "Success is the sum of small efforts, repeated day in and day out." 🌷
+                        </p>
+                    </motion.div>
+                </section>
+
+
+                <section className="flex flex-col md:flex-row items-center justify-center gap-10 mt-20 max-w-6xl mx-auto px-6">
+                    {/* === Left: Carousel === */}
+                    <div className="relative w-full md:w-1/2 aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
+                        {visionImages.map((img, index) => (
+                            <motion.img
+                                key={index}
+                                src={img}
+                                alt={`Slide ${index + 1}`}
+                                className="absolute top-0 left-0 w-full h-full object-cover rounded-2xl"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: index === current ? 1 : 0 }}
+                                transition={{ duration: 1 }}
+                            />
+                        ))}
+
+                        {/* Dots */}
+                        <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
+                            {visionImages.map((_, i) => (
+                                <div
+                                    key={i}
+                                    onClick={() => setVisionCurrent(i)}
+                                    className={`w-3 h-3 rounded-full cursor-pointer ${i === visionCurrent ? "bg-[#B2856E]" : "bg-[#C8B6A6]"
+                                        }`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* === Right: Explanation === */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true }}
+                        className="text-center md:text-left md:w-1/2"
+                    >
+                        <h2 className="text-3xl font-bold text-[#6B4B3E] mb-4">
+                            Vision Section 🌸
+                        </h2>
+                        <p className="text-[#6B4B3E]/80 text-lg leading-relaxed mb-6">
+                            VisionFlow helps you create a personalized vision board that brings your dreams to life.
+                            By visualizing your aspirations and aligning them with your prayers and goals,
+                            you can manifest your ideal future with clarity and purpose.
+                        </p>
+                        <p className="text-[#6B4B3E]/70 italic mb-4">
+                            "Your vision is your promise to yourself." 🌷
+                        </p>
+                        <p className="text-[#6B4B3E]/70 italic">
+                            "My vision is the blueprint of my life." ✨
                         </p>
                     </motion.div>
                 </section>
