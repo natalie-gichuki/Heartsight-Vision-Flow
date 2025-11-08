@@ -38,7 +38,7 @@ const updateUserProfile = async (profileData) => {
         console.log("PROFILE DATA BEING SENT:", profileData);
 
         const response = await axios.put(
-            `https://heartsight-vision-flow-1.onrender.com/user/profile`,
+            `https://heartsight-vision-flow.onrender.com/user/profile`,
             profileData,
             {
                 headers: {

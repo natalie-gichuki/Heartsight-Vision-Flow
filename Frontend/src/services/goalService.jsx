@@ -1,4 +1,4 @@
-const API_URL = "https://heartsight-vision-flow-1.onrender.com/goals/goalItems"; // adjust your backend URL
+const API_URL = "https://heartsight-vision-flow.onrender.com/goals/goalItems"; // adjust your backend URL
 
 const getGoals = async (token) => {
     const res = await fetch(API_URL, {
