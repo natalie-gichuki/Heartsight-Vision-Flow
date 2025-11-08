@@ -5,28 +5,41 @@ import Tutorial_Video from "../assets/Tutorial_video.mp4";
 import React from "react";
 // Importing images for the carousel
 
+// Prayer Images
 import BlankPrayerPage from "../assets/prayer-images/Blank-prayer-page.png";
 import EmptyPrayerForm from "../assets/prayer-images/Empty-prayer-form.png";
 import FilledPrayerForm from "../assets/prayer-images/Filled-prayer-form.png";
 import PrayerCard from "../assets/prayer-images/prayer-card.png";
+
+// Goals Images
 import BlankGoalsForm from "../assets/goals-images/Empty-goals-form.png";
 import EmptyGoalsPage from "../assets/goals-images/Empty-goals-page.png";
 import FilledGoalsForm from "../assets/goals-images/Filled-goals-form.png";
 import GoalsCard from "../assets/goals-images/goal-card.png";
+
+// Vision Images
 import BlankVisionBoard from "../assets/vision-images/Empty-vision-page.png";
 import EmptyVisionForm from "../assets/vision-images/Blank-vision-form.png";
 import FilledVisionForm from "../assets/vision-images/Filled-vision-form.png";
 import VisionCard from "../assets/vision-images/Vision-card.png";
 
+// Bucketlist Images
+import BlankBucketlistForm from "../assets/bucketlist-images/Blank-bucketlist-form.png";
+import EmptyBucketlistPage from "../assets/bucketlist-images/Empty-bucketlist-page.png";
+import FilledBucketlistForm from "../assets/bucketlist-images/Filled-bucketlist-form.png";
+import BucketlistCard from "../assets/bucketlist-images/Bucketlist-card.png";
+
 const prayerImages = [BlankPrayerPage, EmptyPrayerForm, FilledPrayerForm, PrayerCard];
 const goalsImages = [EmptyGoalsPage, BlankGoalsForm, FilledGoalsForm, GoalsCard];
 const visionImages = [BlankVisionBoard, EmptyVisionForm, FilledVisionForm, VisionCard];
+const bucketlistImages = [EmptyBucketlistPage, BlankBucketlistForm, FilledBucketlistForm, BucketlistCard];
 
 const HomePage = () => {
     const [current, setCurrent] = React.useState(0);
 
     const [goalsCurrent, setGoalsCurrent] = React.useState(0);
     const [visionCurrent, setVisionCurrent] = React.useState(0);
+    const [bucketlistCurrent, setBucketlistCurrent] = React.useState(0);
     console.log(goalsCurrent);
 
     // Automatically change the image every 4 seconds
@@ -35,6 +48,7 @@ const HomePage = () => {
             setCurrent((prev) => (prev + 1) % prayerImages.length);
             setGoalsCurrent((prev) => (prev + 1) % goalsImages.length);
             setVisionCurrent((prev) => (prev + 1) % visionImages.length);
+            setBucketlistCurrent((prev) => (prev + 1) % bucketlistImages.length);
         }, 4000);
 
         return () => {
@@ -329,16 +343,77 @@ const HomePage = () => {
                     </motion.div>
                 </section>
 
+                <section className="flex flex-col md:flex-row-reverse items-center mt-20 justify-center gap-10">
+                    {/* Right: Carousel */}
+                    <div className="relative w-full md:w-1/2 aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
+                        {bucketlistImages.map((img, index) => (
+                            <motion.img
+                                key={index}
+                                src={img}
+                                alt={`Inspiration ${index + 1}`}
+                                className="absolute top-0 left-0 w-full h-full object-cover rounded-2xl"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: index === goalsCurrent ? 1 : 0 }}
+                                transition={{ duration: 1 }}
+                            />
+                        ))}
+                        <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
+                            {bucketlistImages.map((_, i) => (
+                                <div
+                                    key={i}
+                                    onClick={() => setBucketlistCurrent(i)}
+                                    className={`w-3 h-3 rounded-full cursor-pointer ${i === bucketlistCurrent ? "bg-[#B2856E]" : "bg-[#C8B6A6]"
+                                        }`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Left: Description */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true }}
+                        className="text-center md:text-left md:w-1/2"
+                    >
+                        <h2 className="text-3xl font-bold text-[#6B4B3E] mb-4">
+                            Bucket List Section 🎯
+                        </h2>
+                        <p className="text-[#6B4B3E]/80 text-lg leading-relaxed mb-6">
+                            VisionFlow empowers you to set, track, and achieve your bucket list goals with clarity and purpose.
+                            By visualizing your aspirations and breaking them down into actionable steps,
+                            you can transform your dreams into reality.
+                        </p>
+                        <p className="text-[#6B4B3E]/70 italic mb-4">
+                            "Your bucket list is a reflection of your true self." 🌷
+                        </p>
+                        <p className="text-[#6B4B3E]/70 italic">
+                            "The journey of a thousand miles begins with a single step." 🌷
+                        </p>
+                    </motion.div>
+                </section>
                 {/* CTA Button */}
-                <div className="mt-12">
+                <div className="mt-20">
                     <Link
                         to="/register"
                         className="bg-[#C69C8D] hover:bg-[#B2856E] text-white font-semibold px-8 py-3 rounded-2xl shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1"
                     >
-                        Start Your Journey
+                        Start Your Journey Today <span className="inline-block transform text-3xl font-extrabold transition-transform hover:translate-x-1">→</span>
                     </Link>
                 </div>
+
+                <section className="mt-20">
+                    <div className="text-center font-bold text-4xl text-[#6B4B3E]/70 italic">
+                        <p>“Small steps every day lead to big results tomorrow.”<br />
+                            "Live your best life every day."</p>
+                    </div>
+                </section>
             </section>
+
+
+
+
 
 
             <footer className="absolute bottom-6 text-[#6B4B3E]/60 text-sm">
