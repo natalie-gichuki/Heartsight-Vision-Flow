@@ -4,7 +4,7 @@ from sqlalchemy import DateTime, ForeignKey
 
 class Goal(db.Model):
     __tablename__ = "goals"
-
+    # tables columns
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     title = db.Column(db.String, nullable=False)
