@@ -404,7 +404,7 @@ const HomePage = () => {
                 </div>
 
                 <section className="mt-20">
-                    <div className="text-center font-bold text-4xl text-[#6B4B3E]/70 italic">
+                    <div className="text-center font-bold text-3xl text-[#6B4B3E]/70 italic">
                         <p>“Small steps every day lead to big results tomorrow.”<br />
                             "Live your best life every day."</p>
                     </div>
