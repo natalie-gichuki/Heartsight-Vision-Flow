@@ -1,1 +1,1 @@
-export const API_URL = 'https://heartsight-vision-flow-1.onrender.com/';
+export const API_URL = 'https://heartsight-vision-flow-1.onrender.com';
