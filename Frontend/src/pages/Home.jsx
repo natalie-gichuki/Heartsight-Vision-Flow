@@ -139,26 +139,6 @@ const HomePage = () => {
                 >
                     Take a quick tour to discover how VisionFlow helps you nurture your <span className="italic">faith, prayers, and dreams</span> into reality.
                 </motion.p>
-
-                {/* Intro Video */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.9 }}
-                    viewport={{ once: true }}
-                    className="relative aspect-video w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl"
-                >
-                    <video
-                        className="w-full object-cover object-top -translate-y-10 scale-100 h-full"
-                        controls
-                        poster={Tutorial_Video}
-                        autoPlay
-                        muted
-                        loop
-                    >
-                        <source src={Tutorial_Video} type="video/mp4" />
-                    </video>
-                </motion.div>
             </section>
 
             {/* Quote Divider */}
