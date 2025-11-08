@@ -8,7 +8,7 @@ const VisionCard = ({ vision, onEdit, onDelete }) => {
             <img
                 src={vision.image_url || "https://via.placeholder.com/300x200?text=Vision"}
                 alt={vision.title}
-                className="w-full h-40 object-cover"
+                className="w-full h-60 object-cover"
             />
 
             {/* Content */}
