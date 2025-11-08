@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5555/visionboard/boards"; // Adjust the URL as needed
+const API_URL = "https://heartsight-vision-flow-1.onrender.com/visionboard/boards"; // Adjust the URL as needed
 
 const getVisions = async (token) => {
     const response = await axios.get(API_URL, {

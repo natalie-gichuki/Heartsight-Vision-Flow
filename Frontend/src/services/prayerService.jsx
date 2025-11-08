@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5555/prayers"; // replace with your backend URL
+const API_URL = "https://heartsight-vision-flow-1.onrender.com/prayers"; // replace with your backend URL
 
 const getPrayers = async (token) => {
     const response = await axios.get(API_URL, {
