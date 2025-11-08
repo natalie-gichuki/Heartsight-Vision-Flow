@@ -58,7 +58,7 @@ const HomePage = () => {
 
 
     return (
-        <div className="relative min-h-screen bg-gradient-to-br from-[#FAF3EF] via-[#FBEFEA] to-[#EBD6CC] flex flex-col items-center justify-center overflow-hidden px-6">
+        <div className="relative h-auto bg-gradient-to-br from-[#FAF3EF] via-[#FBEFEA] to-[#EBD6CC] flex flex-col items-center justify-center overflow-hidden px-6">
 
             {/* Floating icons for animation */}
             <motion.div
@@ -149,7 +149,7 @@ const HomePage = () => {
                     className="relative aspect-video w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl"
                 >
                     <video
-                        className="w-full object-cover h-full]"
+                        className="w-full object-cover object-top -translate-y-10 scale-100 h-full"
                         controls
                         poster={Tutorial_Video}
                         autoPlay
@@ -412,13 +412,10 @@ const HomePage = () => {
             </section>
 
 
-
-
-
-
-            <footer className="absolute bottom-6 text-[#6B4B3E]/60 text-sm">
+            <footer className="mt-16 mb-6 text-[#6B4B3E]/60 text-sm text-center">
                 © {new Date().getFullYear()} VisionFlow — Heartsight Project 🌷
             </footer>
+
         </div>
     );
 };
