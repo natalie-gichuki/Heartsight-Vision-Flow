@@ -59,6 +59,12 @@ def update_bucketlist_item(item_id):
 
     if not item or item.user_id != user_id:
         return jsonify({"message": "Item not found"}), 404
+    
+    if data.get("date-added") == '':
+        data["date-added"] = None
+
+    if data.get("achieved-at") == '':
+        data["achieved-at"] = None
 
     data = request.get_json()
 

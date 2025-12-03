@@ -63,6 +63,11 @@ def update_prayer(prayer_id):
 
     if not data:
         return jsonify({"message": "No data provided"}), 400
+    
+    if data.get('answered_at') == '':
+        data['answered_at'] = None
+    if data.get('created_at') == '':
+        data['created_at'] = None
 
     prayer.title = data.get("title", prayer.title)
     prayer.content = data.get("content", prayer.content)

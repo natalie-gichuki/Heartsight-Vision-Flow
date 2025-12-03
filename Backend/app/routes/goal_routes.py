@@ -65,6 +65,12 @@ def update_goal(goal_id):
 
     if not data:
         return jsonify({"message": "No data provided"}), 400
+    
+    if data.get('completed_at') == '':
+        data['completed_at'] = None
+    if data.get('deadline') == '':
+        data['deadline'] = None
+
 
     goal.title = data.get('title', goal.title)
     goal.description = data.get('description', goal.description)
